@@ -1,0 +1,65 @@
+@font-face {
+    font-family: "flaticon";
+    src: url("./flaticon.ttf?8dd8c0d4ba29cbb7069baa2297b1f1db") format("truetype"),
+url("./flaticon.woff?8dd8c0d4ba29cbb7069baa2297b1f1db") format("woff"),
+url("./flaticon.woff2?8dd8c0d4ba29cbb7069baa2297b1f1db") format("woff2"),
+url("./flaticon.eot?8dd8c0d4ba29cbb7069baa2297b1f1db#iefix") format("embedded-opentype"),
+url("./flaticon.svg?8dd8c0d4ba29cbb7069baa2297b1f1db#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-eye:before {
+    content: "\f101";
+}
+.flaticon-book:before {
+    content: "\f102";
+}
+.flaticon-achievement:before {
+    content: "\f103";
+}
+.flaticon-musical-notes:before {
+    content: "\f104";
+}
+.flaticon-bullhorn:before {
+    content: "\f105";
+}
+.flaticon-magnifying-glass:before {
+    content: "\f106";
+}
+.flaticon-engineer:before {
+    content: "\f107";
+}
+.flaticon-algorithm:before {
+    content: "\f108";
+}
+.flaticon-vector:before {
+    content: "\f109";
+}
+.flaticon-dumbbell:before {
+    content: "\f10a";
+}
+.flaticon-computer-science:before {
+    content: "\f10b";
+}
+.flaticon-dashboard:before {
+    content: "\f10c";
+}
+.flaticon-paint-palette:before {
+    content: "\f10d";
+}
+.flaticon-design:before {
+    content: "\f10e";
+}
+.flaticon-coding:before {
+    content: "\f10f";
+}
