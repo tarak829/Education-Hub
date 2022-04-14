@@ -1,53 +1,58 @@
 import React, { Fragment } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { logout } from "../actions/auth";
+import { Navbar, Nav, Container } from "react-bootstrap";
+
 const Header = ({ isAuthenticated, logout }) => {
   const guestLinks = (
     <Fragment>
-      <li className='nav-link'>
-        <Link to='/'>Home</Link>
-      </li>
-      <li className='nav-link'>
-        <Link to='/login'>Login</Link>
-      </li>
-      <li className='nav-link'>
-        <Link to='/register'>Register</Link>
-      </li>
+      <Link className='nav-link' to='/'>
+        Home
+      </Link>
+      <Link className='nav-link' to='/login'>
+        Login
+      </Link>
+      <Link className='nav-link' to='/register'>
+        Register
+      </Link>
     </Fragment>
   );
   const authLinks = (
-    <Navlist>
-      <li className='nav-link'>
-        <Link to='/dashboard'>Home</Link>
-      </li>
-      <li className='nav-link'>
-        <Link to='/aboutus'>About Us</Link>
-      </li>
-      <li className='nav-link'>
-        <Link to='/courses'>Courses</Link>
-      </li>
-      <li className='nav-link'>
-        <Link to='/contactus'>Contact Us</Link>
-      </li>
-      <li className='nav-link'>
-        <Link to='/login' onClick={logout}>
-          Log Out
-        </Link>
-      </li>
-    </Navlist>
+    <Fragment>
+      <Link className='nav-link' to='/dashboard'>
+        Home
+      </Link>
+      <Link className='nav-link' to='/aboutus'>
+        About Us
+      </Link>
+      <Link className='nav-link' to='/courses'>
+        Courses
+      </Link>
+      <Link className='nav-link' to='/contactus'>
+        Contact Us
+      </Link>
+      <Link className='nav-link' to='/login' onClick={logout}>
+        Log Out
+      </Link>
+    </Fragment>
   );
   return (
-    <StyledNav>
-      <NavLink style={{ textDecoration: "none" }} to='/'>
-        <h1>
-          Education<span>Hub</span>
-        </h1>{" "}
-      </NavLink>
-      <Navlist>{isAuthenticated ? authLinks : guestLinks}</Navlist>
-    </StyledNav>
+    <StyledNavbar sticky='top' bg='light' expand='lg'>
+      <Container fluid>
+        <Link className='navbar-brand' to="/">
+          EDUCATION<span>HUB</span>
+        </Link>
+        <Navbar.Toggle aria-controls='navbarScroll' />
+        <Navbar.Collapse id='navbarScroll'>
+          <Nav className='me-auto my-2 my-lg-0' style={{ maxHeight: "100px" }} navbarScroll>
+            {isAuthenticated ? authLinks : guestLinks}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </StyledNavbar>
   );
 };
 
@@ -61,72 +66,45 @@ const mapStateToProps = (state) => ({
 
 //styled component
 
-const StyledNav = styled.nav`
-  min-height: 10vh;
-  display: flex;
-  margin: auto;
-  position: sticky;
-  z-index: 100;
-  top: 0;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  opacity: 90%;
-  background-color: var(--dark-color);
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-  padding: 0 2rem;
+const StyledNavbar = styled(Navbar)`
 
-  h1 {
-    color: #fff;
-    font-family: "Roboto", sans-serif;
-    font-weight: 800;
-    margin-left: 1rem;
+  #navbarScroll {
+    flex-grow: unset;
+  }
 
+  .navbar-brand {
     span {
       color: #1dc4e7;
     }
   }
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .nav-link {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .navbar-brand {
+      font-size: 1.7rem;
+    }
   }
 
   @media only screen and (max-width: 768px) {
-    h1 {
-      font-size: 3.5rem;
+    .navbar-brand {
+      font-size: 2rem;
     }
   }
 
   @media only screen and (max-width: 425px) {
-    h1 {
-      font-size: 3.5rem;
+    .navbar-brand {
+      font-size: 2.3rem;
     }
   }
 
   @media only screen and (max-width: 375px) {
-    h1 {
-      font-size: 4.2rem;
-    }
-  }
-`;
-
-const Navlist = styled.div`
-  display: flex;
-
-  @media only screen and (max-width: 768px) {
-    li{
-      a{
-        font-size: 1.7rem !important;
-      }
-    }
-  }
-  @media only screen and (max-width: 425px) {
-    li{
-      a{
-        font-size: 2rem !important;
-      }
+    .navbar-brand {
+      font-size: 2.5rem;
     }
   }
 `;
