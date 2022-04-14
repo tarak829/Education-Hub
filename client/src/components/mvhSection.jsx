@@ -13,9 +13,7 @@ const mvhSection = () => {
             <Card.Text>
               This is a wider card with supporting text below as a natural
               lead-in to additional content. This content is a little bit
-              longer.Repellendus alias quis qui. Enim et et et non voluptas et
-              eaque in quia. Distinctio consectetur id ea hic enim natus.
-              Voluptatum expedita porro voluptatem recusandae.
+              longer.Repellendus alias quis qui. .
             </Card.Text>
           </Card.Body>
         </Card>
@@ -26,9 +24,7 @@ const mvhSection = () => {
             <Card.Text>
               This card has supporting text below as a natural lead-in to
               additional content.Distinctio consectetur id ea hic enim natus.
-              Voluptatum expedita porro voluptatem recusandae in atque optio
-              eveniet. Voluptatibus non similique aut vel et fugiat facilis aut.
-              Facilis illo sunt enim.
+              Voluptatum expedita porro voluptatem recusandae in.
             </Card.Text>
           </Card.Body>
         </Card>
@@ -39,9 +35,7 @@ const mvhSection = () => {
             <Card.Text>
               This is a wider card with supporting text below as a natural
               lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.Distinctio
-              consectetur id ea hic enim natus. Voluptatum expedita porro
-              voluptatem recusandae in atque optio eveniet.
+              than the first to show that equal height action.
             </Card.Text>
           </Card.Body>
         </Card>
@@ -51,7 +45,7 @@ const mvhSection = () => {
 };
 
 const Styledmvh = styled.div`
-  min-height: 55vh;
+  min-height: 45vh;
   display: flex;
   width: 75%;
   margin: 2rem auto;
@@ -85,6 +79,38 @@ const Styledmvh = styled.div`
       }
     }
   }
+
+  @media only screen and  (max-width: 1024px) {
+    width: 90%;
+    margin: 0 auto;
+
+  }
+
+  @media only screen and  (max-width: 768px) {
+    min-height: 35vh;
+    width: 90%;
+  }
+
+  @media only screen and  (max-width: 576px) {
+    width: 55%;
+    text-align: center;
+    i {
+      font-size: 3rem;
+      width: 20%;
+      margin: 1rem auto;
+    }
+  }
+
+  @media only screen and  (max-width: 425px) {
+    width: 60%;
+    text-align: center;
+    i {
+      font-size: 3rem;
+      width: 20%;
+      margin: 1rem auto;
+    }
+  }
+  
 `;
 
 export default mvhSection;

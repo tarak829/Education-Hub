@@ -104,7 +104,10 @@ const StyledCards = styled.div`
   text-align: center;
   padding: 3rem 6rem;
   color: white;
-  flex-wrap: wrap;
+
+  @media only screen and (max-width: 435px) {
+    padding: 3rem 4rem;
+  }
 `;
 
 const Header = styled.div`

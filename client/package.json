@@ -15,9 +15,11 @@
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^1.1.5",
+    "react-slick": "^0.28.1",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.0",
     "uuid": "^3.3.3"
   },
@@ -35,5 +37,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
-}
+  ],
+  "proxy": "http://localhost:5000"
+  }

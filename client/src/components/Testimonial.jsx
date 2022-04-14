@@ -1,11 +1,48 @@
 import React from "react";
 import styled from "styled-components";
-import { Carousel } from "react-bootstrap";
-import person1 from "../img/avatar-01.jpg";
-import person2 from "../img/avatar-02.jpg";
-import person3 from "../img/avatar-03.jpg";
+import Slider from "react-slick";
+import testimonialinfo from "./Testimonialinfo";
 
 const Testimonial = () => {
+  var settings = {
+    dots: true,
+    arrows: false,
+    infinite: true,
+    className: "d-flex",
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    initialSlide: 0,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <TestimonialArea>
       <Header>
@@ -13,117 +50,35 @@ const Testimonial = () => {
         <h3>Our Successful Students</h3>
       </Header>
 
-      <Carousel>
-        <Carousel.Item className="area" interval={3000}>
-        
-          <TestimonialBox>
+      <Slider {...settings}>
+        {testimonialinfo.map((card, index) => (
+          <TestimonialBox key={index}>
             <StyledPerson>
-              <img src={person1} alt='person'></img>
-              <i className="fas fa-quote-left"></i>
+              <img src={card.image} alt='person'></img>
+              <i className='fas fa-quote-left'></i>
               <div>
-                <h5>NAVEEN VAISHNAV</h5>
-                <h6>SOFTWARE DEVELOPER</h6>
+                <h5>{card.name}</h5>
+                <h6>{card.occupation}</h6>
               </div>
             </StyledPerson>
-            <p>
-              Quas non distinctio possimus iure quae numquam tempora aliquam
-              delectus. Deserunt laborum repellat. Nobis sit et ad vitae aut.
-            </p>
+            <p>{card.paragraph}</p>
           </TestimonialBox>
-          
-          <TestimonialBox>
-            <StyledPerson>
-              <img src={person2} alt='person'></img>
-              <i className="fas fa-quote-left"></i>
-              <div>
-                <h5>SHIVAM SHARMA</h5>
-                <h6>DATA SCIENTIST</h6>
-              </div>
-            </StyledPerson>
-            <p>
-              Quas non distinctio possimus iure quae numquam tempora aliquam
-              delectus. Deserunt laborum repellat. Nobis sit et ad vitae aut.
-            </p>
-          </TestimonialBox>
-
-          <TestimonialBox>
-            <StyledPerson>
-              <img src={person3} alt='person'></img>
-              <i className="fas fa-quote-left"></i>
-              <div>
-                <h5>VARUN CHANDRA</h5>
-                <h6>WEB DEVELOPER</h6>
-              </div>
-            </StyledPerson>
-            <p>
-              Quas non distinctio possimus iure quae numquam tempora aliquam
-              delectus. Deserunt laborum repellat. Nobis sit et ad vitae aut.
-            </p>
-          </TestimonialBox>
-
-        </Carousel.Item>
-
-        <Carousel.Item className="area" interval={3000}>
-        
-          <TestimonialBox>
-            <StyledPerson>
-              <img src={person2} alt='person'></img>
-              <i className="fas fa-quote-left"></i>
-              <div>
-                <h5>SHIVAM SHARMA</h5>
-                <h6>DESIGNER</h6>
-              </div>
-            </StyledPerson>
-            <p>
-              Quas non distinctio possimus iure quae numquam tempora aliquam
-              delectus. Deserunt laborum repellat. Nobis sit et ad vitae aut.
-            </p>
-          </TestimonialBox>
-          
-          <TestimonialBox>
-            <StyledPerson>
-              <img src={person3} alt='person'></img>
-              <i className="fas fa-quote-left"></i>
-              <div>
-                <h5>VARUN CHANDRA</h5>
-                <h6>DATABASE ADMINISTRATOR</h6>
-              </div>
-            </StyledPerson>
-            <p>
-              Quas non distinctio possimus iure quae numquam tempora aliquam
-              delectus. Deserunt laborum repellat. Nobis sit et ad vitae aut.
-            </p>
-          </TestimonialBox>
-
-          <TestimonialBox>
-            <StyledPerson>
-              <img src={person1} alt='person'></img>
-              <i className="fas fa-quote-left"></i>
-              <div>
-                <h5>NAVEEN VAISHNAV</h5>
-                <h6>MARKETING MANAGER</h6>
-              </div>
-            </StyledPerson>
-            <p>
-              Quas non distinctio possimus iure quae numquam tempora aliquam
-              delectus. Deserunt laborum repellat. Nobis sit et ad vitae aut.
-            </p>
-          </TestimonialBox>
-
-        </Carousel.Item>
-      </Carousel>
+        ))}
+      </Slider>
     </TestimonialArea>
   );
 };
 
 const TestimonialArea = styled.div`
-  min-height: 50vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 50px 0;
   text-align: center;
-  padding: 3rem 6rem;
-  margin-bottom: 8rem;
+
+  .slick-list {
+    margin: 0 5rem;
+  }
+  .slick-slide > div {
+    padding: 0.3rem 0.6rem;
+  }
 `;
 
 const Header = styled.div`
@@ -150,10 +105,10 @@ const StyledPerson = styled.div`
     width: 5rem;
     border-radius: 50rem;
   }
-  h6{
-      font-size: .8rem;
-      font-weight: 500;
-      color: var(--pale-blue);
+  h6 {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--pale-blue);
   }
 `;
 
@@ -161,17 +116,17 @@ const TestimonialBox = styled.div`
   text-align: left;
   padding: 2rem;
   background-color: #ffffff;
-  width: 30%;
-  margin-right: 2rem;
-  float: right;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
-  i{
-      position: relative;
-      top: 1.7rem;
-      right: 1.7rem;
-      padding: .5rem;
-      background-color: var(--pale-blue);
-      border-radius: 5rem;
+  i {
+    position: relative;
+    top: 1.7rem;
+    right: 1.7rem;
+    padding: 0.5rem;
+    background-color: var(--pale-blue);
+    border-radius: 5rem;
   }
 `;
+
 export default Testimonial;

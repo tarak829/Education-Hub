@@ -4,7 +4,7 @@
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
-  --pale-blue: #1DC4E7;
+  --pale-blue: #1dc4e7;
 }
 
 * {
@@ -19,8 +19,12 @@ html {
   overflow-x: hidden;
 }
 
+body > #root > div {
+  min-height: 90vh;
+}
+
 body {
-  background-color: #F8F8F8 !important;
+  background-color: #f8f8f8 !important;
   /* background-image: ; */
   padding: 0;
   position: relative;
@@ -225,57 +229,44 @@ button {
 }
 
 /* Desktops and laptops ----------- */
-@media only screen 
-and (max-width : 87.5em) {
-/* Styles */
-  
-  html{
-    font-size: .9rem;
+@media only screen and (max-width: 1440px) {
+  /* Styles */
+  html {
+    font-size: 0.9rem;
+  }
+
+  p {
+    font-size: 1.1rem;
   }
 }
 
-@media only screen 
-and (max-width : 78.75em) {
-/* Styles */
-  
-  html{
-    font-size: .8rem;
+@media only screen and (max-width: 1024px) {
+  /* Styles */
+  html {
+    font-size: 0.8rem;
   }
 }
 
-@media only screen 
-and (max-width : 75em) {
-/* Styles */
-  
-  html{
-    font-size: .66rem;
+@media only screen and (max-width: 768px) {
+  /* Styles */
+  html {
+    font-size: 0.66rem;
   }
 }
 
-@media only screen 
-and (max-width : 62em) {
-/* Styles */
-  
-  html{
-    font-size: .6rem;
+@media only screen and (max-width: 425px) {
+  /* Styles */
+  html {
+    font-size: 0.61rem;
+  }
+  p {
+    font-size: 1.3rem;
   }
 }
 
-@media only screen 
-and (max-width : 52.5em) {
-/* Styles */
-  
-  html{
-    font-size: .5rem;
-  }
-}
-
-@media only screen 
-and (max-width : 45em) {
-/* Styles */
-  
-  html{
-    display: flex;
-    flex-direction: column;
+@media only screen and (max-width: 375px) {
+  /* Styles */
+  html {
+    font-size: 0.5rem;
   }
 }

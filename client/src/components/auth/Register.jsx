@@ -101,7 +101,44 @@ const mapStateToProps = (state) => ({
 //Styled Component
 
 const Styledregister = styled.div`
-  min-height: 77.7vh;
+  min-height: 83vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 2rem;
+    .form-wrapper {
+      padding: 2rem;
+      width: 50%;
+      .lead {
+        font-size: 1.5rem;
+        .fa-user {
+          font-size: 2.5rem;
+        }
+      }
+      .text-primary {
+        font-size: 4.5rem;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 425px) {
+    font-size: 2rem;
+    .form-wrapper {
+      padding: 2rem;
+      width: 85%;
+      .lead {
+        font-size: 1.5rem;
+        .fa-user {
+          font-size: 2.5rem;
+        }
+      }
+      .text-primary {
+        font-size: 4.5rem;
+      }
+    }
+  }
 `
 
 export default connect(mapStateToProps, { setAlert, register })(Register);

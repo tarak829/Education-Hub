@@ -40,13 +40,10 @@ const CourseSection = () => {
   };
 
   return (
-    <CourseArea>
+    <CourseArea className='abcd'>
       <Header>
         <h1>Explore Courses</h1>
-        <p>
-          Molestias doloribus iure. Laborum reiciendis nihil suscipit. Harum aut
-          sunt et quis.
-        </p>
+        <p>Molestias doloribus iure. Laborum reiciendis nihil suscipit. Harum aut sunt et quis.</p>
         <p>Adipisci autem facere non quis ut dolorum voluptate nam.</p>
       </Header>
       <CardArea>{courseInfo.map(renderCourse)}</CardArea>
@@ -78,13 +75,14 @@ const Header = styled.div`
 `;
 
 const Card = styled.div`
-  width: 28%;
-  margin: 0.7rem;
+  width: calc(100vw / 4.2);
   display: flex;
+  margin: 0.7rem;
   flex-direction: column;
   background-color: #ffffff;
   padding: 2rem;
   border-radius: 5px;
+  transition: all 0.5s;
 
   .detail {
     display: flex;
@@ -138,16 +136,37 @@ const Card = styled.div`
       color: var(--pale-blue);
     }
   }
+
+  @media only screen and (max-width: 1024px) {
+    width: calc(100vw / 3);
+  }
+
+  @media only screen and (max-width: 768px) {
+    width: calc(100vw / 2.4);
+  }
+
+  @media only screen and (max-width: 576px) {
+    width: calc(100vw / 1.5);
+  }
+
+  @media only screen and (max-width: 425px) {
+    width: calc(100vw / 1.3);
+  }
 `;
 
 const CardArea = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 0 auto;
 `;
 const CourseArea = styled.div`
   min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 0;
+  color: white;
 
   .next {
     display: flex;

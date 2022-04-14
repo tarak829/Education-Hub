@@ -11,16 +11,18 @@ const Footer = () => {
         <Link className='edu' to='/contactus'>
           EducationHub
         </Link>{" "}
-        Design By : <span>Group7</span>{" "}
+        By <span>Abhishek Tarak</span>{" "}
       </p>
     </StyledFooter>
   );
 };
 
 const StyledFooter = styled.footer`
-  position: absolute;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+  position: absolute;
   background-color: #1f1f1f;
 
   p {
@@ -38,6 +40,24 @@ const StyledFooter = styled.footer`
       cursor: pointer;
       transition: all 0.2s;
       color: var(--pale-blue);
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    p {
+      padding: 0.5rem 4rem;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    p {
+      padding: 0.5rem 2rem;
+    }
+  }
+
+  @media only screen and (max-width: 576px) {
+    p {
+      padding: 0.5rem 1rem;
     }
   }
 `;

@@ -21,9 +21,7 @@ const Homepage = () => {
           <img className='d-block w-100' src={img2} alt='Second slide' />
 
           <Carousel.Caption className='text-center'>
-            <h1 className='heading-carousel'>
-              Reaching Out to Millions of People.
-            </h1>
+            <h1 className='heading-carousel'>Reaching Out to Millions of People.</h1>
             {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
           </Carousel.Caption>
         </Carousel.Item>
@@ -51,6 +49,36 @@ const Slider = styled.div`
     top: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
+  }
+
+  @media (max-width: 1270px) {
+    .heading-carousel {
+      font-size: 5rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .heading-carousel {
+      font-size: 4.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .heading-carousel {
+      font-size: 4rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .heading-carousel {
+      font-size: 3rem;
+    }
+  }
+
+  @media (max-width: 425px) {
+    .heading-carousel {
+      font-size: 2rem;
+    }
   }
 `;
 
